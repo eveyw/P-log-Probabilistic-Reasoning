@@ -1,0 +1,48 @@
+%There are 8 teams in the play-off stage
+team={1..8}.
+
+%It needs n-1 games to determine the final winner
+game={1..7}.
+
+
+winner:game->team.
+
+#domain team(T).
+#domain game(G).
+
+%%Arrangement of the game
+in_game(1,1).
+in_game(2,1).
+in_game(3,2).
+in_game(4,2).
+in_game(T,3) :- winner(1)=T.
+in_game(T,3) :- winner(2)=T.
+in_game(5,4).
+in_game(6,4).
+in_game(7,5).
+in_game(8,5).
+in_game(T,6) :- winner(4)=T.
+in_game(T,6) :- winner(5)=T.
+in_game(T,7) :- winner(3)=T.
+in_game(T,7) :- winner(6)=T.
+
+
+%Probability of the winning team
+
+%If team 2 vs. team 1. , team 2 has 40% chance to win the game.
+[w(G)] pr(winner(G)=1|in_game(2,G), in_game(1,G))=4/10.
+
+[w(G)] pr(winner(G)=1|in_game(3,G), in_game(1,G))=7/10.
+[w(G)] pr(winner(G)=5|in_game(5,G), in_game(6,G))=6/10.
+[w(G)] pr(winner(G)=8|in_game(5,G), in_game(8,G))=4/10.
+
+[w(G)] random(winner(G):{Y:in_game(Y,G)}).
+
+%Query who is more likely to win the last game, game 7,
+%i.e., who is more likely to be the champion.
+
+?<winner(7)>.
+
+
+
+

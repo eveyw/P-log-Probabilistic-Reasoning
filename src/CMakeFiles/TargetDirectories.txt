@@ -1,0 +1,7 @@
+/Users/eveyw/Desktop/plog/src/CMakeFiles/install/local.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/rebuild_cache.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/edit_cache.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/install/strip.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/install.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/list_install_components.dir
+/Users/eveyw/Desktop/plog/src/CMakeFiles/plog.dir

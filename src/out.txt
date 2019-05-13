@@ -1,0 +1,30 @@
+team(1..8).
+game(1..7).
+#domain team(T).
+#domain game(G).
+in_game(1,1,true).
+in_game(2,1,true).
+in_game(3,2,true).
+in_game(4,2,true).
+in_game(T,3,true):-winner(1,T).
+in_game(T,3,true):-winner(2,T).
+in_game(5,4,true).
+in_game(6,4,true).
+in_game(7,5,true).
+in_game(8,5,true).
+in_game(T,6,true):-winner(4,T).
+in_game(T,6,true):-winner(5,T).
+in_game(T,7,true):-winner(3,T).
+in_game(T,7,true):-winner(6,T).
+pa(w(G),winner(G,1),di_(4,10)):-in_game(2,G,true),in_game(1,G,true).
+pa(w(G),winner(G,1),di_(7,10)):-in_game(3,G,true),in_game(1,G,true).
+pa(w(G),winner(G,5),di_(6,10)):-in_game(5,G,true),in_game(6,G,true).
+pa(w(G),winner(G,8),di_(4,10)):-in_game(5,G,true),in_game(8,G,true).
+1{winner(G,Y):team(Y)}1:-not intervene(winner(G)).
+pd(w(G),winner(G,Y)):-not intervene(winner(G)),team(Y),in_game(Y,G,true).
+:-not intervene(winner(G)),winner(G,Y),not in_game(Y,G,true),team(Y).
+show winner(G,Y).
+
+hide.
+show pd(X,Y).
+show pa(X,Y,Z).
